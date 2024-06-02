@@ -1,0 +1,16 @@
+# Cargo.toml
+
+[package]
+name = "my-crab-lib"
+version = "0.1.0"
+
+[lib]
+crate-type = ["staticlib"]
+
+[build-dependencies]
+swift-bridge-build = "0.1"
+
+[dependencies]
+base64 = "0.22.1"
+soft_skia = "0.10.0"
+swift-bridge = "0.1"
