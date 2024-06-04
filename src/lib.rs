@@ -10,8 +10,65 @@ use soft_skia::shape::Pixmap;
 #[swift_bridge::bridge]
 mod ffi {
     extern "Rust" {
+        type SoftSkia;
+
+        #[swift_bridge(init)]
+        fn new() -> SoftSkia;
+
+        fn create(&mut self, id: usize) -> ();
+        // fn add(parent_id: usize, child_id: usize) -> ();
+        fn set_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, r: u32, g: u32, b: u32);
+        fn to_base64(&mut self) -> String;
+
         fn hello_rust() -> String;
         fn hello_soft_skia() -> String;
+    }
+}
+
+pub struct SoftSkia {
+    instance: Instance
+}
+
+impl SoftSkia {
+    pub fn new() -> Self {
+        let mut instance = Instance::new(0);
+        instance.set_shape_to_child(
+            0,
+            Shapes::R(Rect {
+                x: 0,
+                y: 0,
+                width: 400,
+                height: 400,
+                color: None,
+                style: None,
+            }),
+        );
+        Self {
+            instance
+        }
+    }
+
+    pub fn create(&mut self, id: usize) -> () {
+        self.instance.create_child_append_to_container(id, 0);
+    }
+
+    pub fn add(parent_id: usize, child_id: usize) -> () {
+        todo!()
+    }
+
+    pub fn set_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, r: u32, g: u32, b: u32) {
+        self.instance.set_shape_to_child(id, Shapes::R(Rect {
+            x,
+            y,
+            width,
+            height,
+            color: Some(soft_skia::shape::ColorU8::from_rgba(r as u8, g as u8, b as u8, 255)),
+            style: None,
+        }))
+    }
+
+    pub fn to_base64(&mut self) -> String {
+        to_base64(&mut self.instance.tree)
     }
 }
 

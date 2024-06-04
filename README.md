@@ -9,5 +9,5 @@ $ cargo build
 
 
 ```shell
-$ ./build.sh
+$ ./build-rust.sh
 ```
