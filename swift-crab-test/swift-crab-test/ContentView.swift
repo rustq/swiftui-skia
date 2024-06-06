@@ -19,12 +19,12 @@ struct ContentView: View {
 //            AsyncImage(url: URL(string: MyCrabLib.hello_soft_skia().toString()))
             SKSurface {
 
-                SKStack(x: 10, y: 10, width: 10, height: 10, r: 255, g: 0, b: 0) {
-                    SKStack(x: 100, y: 100, width: 30, height: 70, r: 0, g: 100, b: 0) {
+                SKStack(x: 10, y: 10, width: 10, height: 10, r: 255, g: 0, b: 0, shape: "rect") {
+                    SKStack(x: 100, y: 100, width: 30, height: 70, r: 0, g: 100, b: 0, shape: "line") {
                     }
-                    SKStack(x: 200, y: 40, width: 100, height: 20, r: 0, g: 0, b: 0) {
+                    SKStack(x: 200, y: 40, width: 100, height: 20, r: 0, g: 0, b: 0, shape: "line") {
                     }
-                    SKStack(x: 200, y: 240, width: 100, height: 20, r: 255, g: 255, b: 255) {
+                    SKStack(x: 200, y: 240, width: 100, height: 20, r: 255, g: 255, b: 255, shape: "line") {
                     }
                     SKButton()
                     
@@ -96,8 +96,9 @@ struct SKStack<Content: View>: View {
     let r: UInt32;
     let g: UInt32;
     let b: UInt32;
+    let shape: String;
     
-    init(x: UInt32, y: UInt32, width: UInt32, height: UInt32, r: UInt32, g: UInt32, b: UInt32, @ViewBuilder content: () -> Content) {
+    init(x: UInt32, y: UInt32, width: UInt32, height: UInt32, r: UInt32, g: UInt32, b: UInt32, shape: String, @ViewBuilder content: () -> Content) {
         self.content = content();
         self.id = AutoIncrementID.id();
         self.x = x;
@@ -107,6 +108,7 @@ struct SKStack<Content: View>: View {
         self.r = r;
         self.g = g;
         self.b = b;
+        self.shape = shape;
     }
     
     var body: some View {
@@ -116,7 +118,7 @@ struct SKStack<Content: View>: View {
             Text("parent = " + String(parentID.id))
         }.padding().environmentObject(ParentID(id: self.id)).onAppear{
                 self.ffi.soft.create(UInt(self.id));
-            self.ffi.soft.set_attr(UInt(self.id), self.x, self.y, self.width, self.height, self.r, self.g, self.b)
+                self.ffi.soft.set_attr(UInt(self.id), self.x, self.y, self.width, self.height, self.r, self.g, self.b, self.shape)
             }
     }
 }

@@ -1,6 +1,7 @@
 extern crate soft_skia;
 extern crate base64;
 use soft_skia::instance::Instance;
+use soft_skia::shape::Line;
 use soft_skia::shape::PaintStyle;
 use soft_skia::shape::Rect;
 use soft_skia::shape::Circle;
@@ -17,7 +18,7 @@ mod ffi {
 
         fn create(&mut self, id: usize) -> ();
         // fn add(parent_id: usize, child_id: usize) -> ();
-        fn set_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, r: u32, g: u32, b: u32);
+        fn set_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, r: u32, g: u32, b: u32, shape: String);
         fn to_base64(&mut self) -> String;
 
         fn hello_rust() -> String;
@@ -56,15 +57,30 @@ impl SoftSkia {
         todo!()
     }
 
-    pub fn set_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, r: u32, g: u32, b: u32) {
-        self.instance.set_shape_to_child(id, Shapes::R(Rect {
-            x,
-            y,
-            width,
-            height,
-            color: Some(soft_skia::shape::ColorU8::from_rgba(r as u8, g as u8, b as u8, 255)),
-            style: None,
-        }))
+    pub fn set_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, r: u32, g: u32, b: u32, shape: String) {
+        match shape.as_str() {
+            "rect" => {
+                self.instance.set_shape_to_child(id, Shapes::R(Rect {
+                    x,
+                    y,
+                    width,
+                    height,
+                    color: Some(soft_skia::shape::ColorU8::from_rgba(r as u8, g as u8, b as u8, 255)),
+                    style: None,
+                }))
+            },
+            "line" => {
+                self.instance.set_shape_to_child(id, Shapes::L(Line {
+                    p1: [x, y],
+                    p2: [x + 100, y + 100],
+                    color: Some(soft_skia::shape::ColorU8::from_rgba(r as u8, g as u8, b as u8, 255)),
+                    stroke_width: Some(4),
+                }))
+            },
+            _ => {
+                
+            }
+        }
     }
 
     pub fn to_base64(&mut self) -> String {
