@@ -11,6 +11,9 @@ let package = Package(
         .tvOS(.v13),
         .watchOS(.v6)
     ],
+    dependencies: [
+        .package(name: "MySwiftPackage", path: "../MySwiftPackage"),
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(

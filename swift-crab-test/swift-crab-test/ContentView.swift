@@ -18,20 +18,26 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             Text("Hello Soft Skia Swift!")
 //            AsyncImage(url: URL(string: MyCrabLib.hello_soft_skia().toString()))
-            SwiftUISkia()
-            SKSurface {
-
-                SKStack(x: 10, y: 10, width: 10, height: 10, r: 255, g: 0, b: 0, shape: "rect") {
-                    SKStack(x: 100, y: 100, width: 30, height: 70, r: 0, g: 100, b: 0, shape: "line") {
-                    }
-                    SKStack(x: 200, y: 40, width: 100, height: 20, r: 0, g: 0, b: 0, shape: "line") {
-                    }
-                    SKStack(x: 200, y: 240, width: 100, height: 20, r: 255, g: 255, b: 255, shape: "line") {
-                    }
-                    SKButton()
-                    
+            SwiftUISkia.Surface(width: 500, height: 400) {
+                SwiftUISkia.Rect(x: 100, y: 100, width: 100, height: 100) {
                 }
-            }.environmentObject(ParentID(id: 0)).environmentObject(FFI(soft: MyCrabLib.SoftSkia()))
+                SwiftUISkia.Rect(x: 140, y: 140, width: 100, height: 100) {
+                }
+                
+            }
+//            SKSurface {
+//
+//                SKStack(x: 10, y: 10, width: 10, height: 10, r: 255, g: 0, b: 0, shape: "rect") {
+//                    SKStack(x: 100, y: 100, width: 30, height: 70, r: 0, g: 100, b: 0, shape: "line") {
+//                    }
+//                    SKStack(x: 200, y: 40, width: 100, height: 20, r: 0, g: 0, b: 0, shape: "line") {
+//                    }
+//                    SKStack(x: 200, y: 240, width: 100, height: 20, r: 255, g: 255, b: 255, shape: "line") {
+//                    }
+//                    SKButton()
+//                    
+//                }
+//            }.environmentObject(ParentID(id: 0)).environmentObject(FFI(soft: MyCrabLib.SoftSkia()))
         }
         .padding()
     }
