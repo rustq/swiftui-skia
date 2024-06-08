@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MyCrabLib;
+import SwiftUISkia
 
 struct ContentView: View {
     var body: some View {
@@ -17,6 +18,7 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             Text("Hello Soft Skia Swift!")
 //            AsyncImage(url: URL(string: MyCrabLib.hello_soft_skia().toString()))
+            SwiftUISkia()
             SKSurface {
 
                 SKStack(x: 10, y: 10, width: 10, height: 10, r: 255, g: 0, b: 0, shape: "rect") {

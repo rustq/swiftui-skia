@@ -15,6 +15,7 @@
 		8F81A5DB2C0C633D00C0EEB4 /* swift_crab_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81A5DA2C0C633D00C0EEB4 /* swift_crab_testUITests.swift */; };
 		8F81A5DD2C0C633D00C0EEB4 /* swift_crab_testUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81A5DC2C0C633D00C0EEB4 /* swift_crab_testUITestsLaunchTests.swift */; };
 		8F86FE932C0F8A4D00E470BA /* MyCrabLib in Frameworks */ = {isa = PBXBuildFile; productRef = 8F86FE922C0F8A4D00E470BA /* MyCrabLib */; };
+		8F86FE982C1437CD00E470BA /* SwiftUISkia in Frameworks */ = {isa = PBXBuildFile; productRef = 8F86FE972C1437CD00E470BA /* SwiftUISkia */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F86FE982C1437CD00E470BA /* SwiftUISkia in Frameworks */,
 				8F86FE932C0F8A4D00E470BA /* MyCrabLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +159,7 @@
 			name = "swift-crab-test";
 			packageProductDependencies = (
 				8F86FE922C0F8A4D00E470BA /* MyCrabLib */,
+				8F86FE972C1437CD00E470BA /* SwiftUISkia */,
 			);
 			productName = "swift-crab-test";
 			productReference = 8F81A5BB2C0C633B00C0EEB4 /* swift-crab-test.app */;
@@ -232,6 +235,7 @@
 			mainGroup = 8F81A5B22C0C633A00C0EEB4;
 			packageReferences = (
 				8F86FE912C0F8A4400E470BA /* XCLocalSwiftPackageReference "../MySwiftPackage" */,
+				8F86FE962C1437C600E470BA /* XCLocalSwiftPackageReference "../SwiftUISkia" */,
 			);
 			productRefGroup = 8F81A5BC2C0C633B00C0EEB4 /* Products */;
 			projectDirPath = "";
@@ -365,7 +369,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -420,7 +426,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -631,6 +639,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../MySwiftPackage;
 		};
+		8F86FE962C1437C600E470BA /* XCLocalSwiftPackageReference "../SwiftUISkia" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../SwiftUISkia;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -638,6 +650,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8F86FE912C0F8A4400E470BA /* XCLocalSwiftPackageReference "../MySwiftPackage" */;
 			productName = MyCrabLib;
+		};
+		8F86FE972C1437CD00E470BA /* SwiftUISkia */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F86FE962C1437C600E470BA /* XCLocalSwiftPackageReference "../SwiftUISkia" */;
+			productName = SwiftUISkia;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
