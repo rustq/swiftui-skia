@@ -14,10 +14,14 @@ public class AutoIncrementID {
 @available(macOS 10.15, *)
 public class FFI: ObservableObject {
     @Published var soft: SoftSkiaSwift.SoftSkia;
-    @Published var count: UInt32;
+    @Published private var count: UInt32;
     
     init(soft: SoftSkiaSwift.SoftSkia) {
         self.soft = soft;
         self.count = 0;
+    }
+
+    public func willChange() {
+        self.count += 1;
     }
 }

@@ -33,8 +33,8 @@ extension SoftSkiaRefMut {
         __swift_bridge__$SoftSkia$create(ptr, id)
     }
 
-    public func set_attr<GenericIntoRustString: IntoRustString>(_ id: UInt, _ x: UInt32, _ y: UInt32, _ width: UInt32, _ height: UInt32, _ r: UInt32, _ g: UInt32, _ b: UInt32, _ shape: GenericIntoRustString) {
-        __swift_bridge__$SoftSkia$set_attr(ptr, id, x, y, width, height, r, g, b, { let rustString = shape.intoRustString(); rustString.isOwned = false; return rustString.ptr }())
+    public func set_attr<GenericIntoRustString: IntoRustString>(_ id: UInt, _ x: UInt32, _ y: UInt32, _ width: UInt32, _ height: UInt32, _ r: UInt32, _ g: UInt32, _ b: UInt32, _ shape: GenericIntoRustString, _ color: GenericIntoRustString, _ style: GenericIntoRustString) {
+        __swift_bridge__$SoftSkia$set_attr(ptr, id, x, y, width, height, r, g, b, { let rustString = shape.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), { let rustString = color.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), { let rustString = style.intoRustString(); rustString.isOwned = false; return rustString.ptr }())
     }
 
     public func to_base64() -> RustString {
