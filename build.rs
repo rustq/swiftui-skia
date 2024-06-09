@@ -20,11 +20,11 @@ fn main() {
     swift_bridge_build::create_package(CreatePackageConfig {
         bridge_dir: PathBuf::from("./generated"),
         paths: HashMap::from([
-            (ApplePlatform::IOS, "target/aarch64-apple-ios/debug/libmy_crab_lib.a".into()),
-            (ApplePlatform::Simulator, "target/universal-ios/debug/libmy_crab_lib.a".into()),
-            (ApplePlatform::MacOS, "target/universal-macos/debug/libmy_crab_lib.a".into()),
+            (ApplePlatform::IOS, "target/aarch64-apple-ios/debug/libsoft_skia_swift.a".into()),
+            (ApplePlatform::Simulator, "target/universal-ios/debug/libsoft_skia_swift.a".into()),
+            (ApplePlatform::MacOS, "target/universal-macos/debug/libsoft_skia_swift.a".into()),
         ]),
-        out_dir: PathBuf::from("MySwiftPackage"),
-        package_name: "MyCrabLib".to_owned()
+        out_dir: PathBuf::from("SoftSkiaSwift"),
+        package_name: "SoftSkiaSwift".to_owned()
     });
 }

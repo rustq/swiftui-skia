@@ -2,7 +2,7 @@
 // https://docs.swift.org/swift-book
 
 import SwiftUI
-import MyCrabLib
+import SoftSkiaSwift
 
 class AutoIncrementID {
     static private var inc: Int32 = 0;
@@ -34,10 +34,10 @@ public struct Hello: View {
 
 @available(macOS 10.15, *)
 class FFI: ObservableObject {
-    @Published var soft: MyCrabLib.SoftSkia;
+    @Published var soft: SoftSkiaSwift.SoftSkia;
     @Published var count: UInt32;
     
-    init(soft: MyCrabLib.SoftSkia) {
+    init(soft: SoftSkiaSwift.SoftSkia) {
         self.soft = soft;
         self.count = 0;
     }
@@ -56,7 +56,7 @@ public struct Surface<Content: View>: View {
         self.width = width
         self.height = height
         self.content = builder()
-        self.ffi = FFI(soft: MyCrabLib.SoftSkia());
+        self.ffi = FFI(soft: SoftSkiaSwift.SoftSkia());
     }
     
     public var body: some View {

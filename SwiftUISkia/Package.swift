@@ -11,14 +11,14 @@ let package = Package(
         .tvOS(.v13),
         .watchOS(.v6)
     ],
-    dependencies: [
-        .package(name: "MySwiftPackage", path: "../MySwiftPackage"),
-    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "SwiftUISkia",
             targets: ["SwiftUISkia"]),
+    ],
+    dependencies: [
+        .package(name: "SoftSkiaSwift", path: "../SoftSkiaSwift"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

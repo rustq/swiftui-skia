@@ -1,7 +1,7 @@
 # Cargo.toml
 
 [package]
-name = "my-crab-lib"
+name = "soft-skia-swift"
 version = "0.1.0"
 
 [lib]
