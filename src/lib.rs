@@ -21,7 +21,6 @@ mod ffi {
 
         fn create(&mut self, id: usize) -> ();
         // fn add(parent_id: usize, child_id: usize) -> ();
-        fn set_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, r: u32, g: u32, b: u32, shape: String, color: String, style: String);
 
         fn set_rect_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, style: String, color: String);
 
@@ -61,35 +60,6 @@ impl SoftSkia {
 
     pub fn add(parent_id: usize, child_id: usize) -> () {
         todo!()
-    }
-
-    pub fn set_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, r: u32, g: u32, b: u32, shape: String, color: String, style: String) {
-        match shape.as_str() {
-            "rect" => {
-                let color = parse_color(Some(color));
-                let style = parse_style(Some(style));
-                self.instance.set_shape_to_child(id, Shapes::R(Rect {
-                    x,
-                    y,
-                    width,
-                    height,
-                    color,
-                    style,
-                }))
-            },
-            "line" => {
-                let color = parse_color(Some(color));
-                self.instance.set_shape_to_child(id, Shapes::L(Line {
-                    p1: [x, y],
-                    p2: [x + 100, y + 100],
-                    color,
-                    stroke_width: Some(4),
-                }))
-            },
-            _ => {
-                
-            }
-        }
     }
 
     pub fn set_rect_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, style: String, color: String) {

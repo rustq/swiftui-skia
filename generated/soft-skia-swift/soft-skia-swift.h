@@ -14,7 +14,6 @@ void* __swift_bridge__$Vec_SoftSkia$as_ptr(void* vec_ptr);
 
 void* __swift_bridge__$SoftSkia$new(void);
 void __swift_bridge__$SoftSkia$create(void* self, uintptr_t id);
-void __swift_bridge__$SoftSkia$set_attr(void* self, uintptr_t id, uint32_t x, uint32_t y, uint32_t width, uint32_t height, uint32_t r, uint32_t g, uint32_t b, void* shape, void* color, void* style);
 void __swift_bridge__$SoftSkia$set_rect_attr(void* self, uintptr_t id, uint32_t x, uint32_t y, uint32_t width, uint32_t height, void* style, void* color);
 void* __swift_bridge__$SoftSkia$to_base64(void* self);
 void* __swift_bridge__$hello_rust(void);
