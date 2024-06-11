@@ -6,6 +6,7 @@ use soft_skia::shape::PaintStyle;
 use soft_skia::shape::Rect;
 use soft_skia::shape::Circle;
 use soft_skia::shape::Line;
+use soft_skia::shape::Points;
 use soft_skia::shape::Shapes;
 use soft_skia::shape::Pixmap;
 use soft_skia::shape::ColorU8;
@@ -25,6 +26,7 @@ mod ffi {
         fn set_rect_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, style: String, color: String);
         fn set_circle_attr(&mut self, id: usize, cx: u32, cy: u32, r: u32, style: String, color: String);
         fn set_line_attr(&mut self, id: usize, p1: &[u32], p2: &[u32], stroke_width: Option<u32>, color: String);
+        fn set_points_attr(&mut self, id: usize, points: &[u32], stroke_width: Option<u32>, style: String, color: String);
 
         fn to_base64(&mut self) -> String;
     }
@@ -51,8 +53,8 @@ impl SoftSkia {
     }
 
     pub fn set_rect_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, style: String, color: String) {
-        let color = parse_color(Some(color));
         let style = parse_style(Some(style));
+        let color = parse_color(Some(color));
         self.instance.set_shape_to_child(id, Shapes::R(Rect {
             x,
             y,
@@ -64,8 +66,8 @@ impl SoftSkia {
     }
 
     pub fn set_circle_attr(&mut self, id: usize, cx: u32, cy: u32, r: u32, style: String, color: String) {
-        let color = parse_color(Some(color));
         let style = parse_style(Some(style));
+        let color = parse_color(Some(color));
         self.instance.set_shape_to_child(id, Shapes::C(Circle {
             cx,
             cy,
@@ -82,6 +84,27 @@ impl SoftSkia {
             p1: [p1[0], p1[1]],
             p2: [p2[0], p2[1]],
             stroke_width,
+            color,
+        }))
+    }
+
+    pub fn set_points_attr(&mut self, id: usize, points: &[u32], stroke_width: Option<u32>, style: String, color: String) {
+        let style = parse_style(Some(style));
+        let color = parse_color(Some(color));
+        let points = {
+            let mut result = vec![];
+            let mut i = 0;
+            let len = points.len();
+            while i < len {
+                result.push([points[i], points[i + 1]]);
+                i += 2;
+            }
+            result
+        };
+        self.instance.set_shape_to_child(id, Shapes::P(Points {
+            points,
+            stroke_width,
+            style,
             color,
         }))
     }

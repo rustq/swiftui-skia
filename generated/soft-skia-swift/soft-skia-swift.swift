@@ -39,6 +39,10 @@ extension SoftSkiaRefMut {
         __swift_bridge__$SoftSkia$set_line_attr(ptr, id, p1.toFfiSlice(), p2.toFfiSlice(), stroke_width.intoFfiRepr(), { let rustString = color.intoRustString(); rustString.isOwned = false; return rustString.ptr }())
     }
 
+    public func set_points_attr<GenericIntoRustString: IntoRustString>(_ id: UInt, _ points: UnsafeBufferPointer<UInt32>, _ stroke_width: Optional<UInt32>, _ style: GenericIntoRustString, _ color: GenericIntoRustString) {
+        __swift_bridge__$SoftSkia$set_points_attr(ptr, id, points.toFfiSlice(), stroke_width.intoFfiRepr(), { let rustString = style.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), { let rustString = color.intoRustString(); rustString.isOwned = false; return rustString.ptr }())
+    }
+
     public func to_base64() -> RustString {
         RustString(ptr: __swift_bridge__$SoftSkia$to_base64(ptr))
     }
