@@ -169,22 +169,22 @@ fn recursive_rasterization_node_to_pixmap(node: &mut soft_skia::tree::Node, pixm
         if let Some(provider) = item.provider.as_mut() {
             provider.set_context(pixmap, node.provider.as_ref());
 
-            // 这段感觉放这有点重，想搬走
-            // match provider {
-            //     soft_skia::shape::Providers::G(group) => {
-            //         if let Some(clip) = &group.clip {
-            //             if let Some(clip_id) = clip.id {
-            //                 if let Some(clip_path) =
-            //                     item.children.iter_mut().find(|n| n.id == clip_id).and_then(
-            //                         |n| Some(n.shape.get_path(group.context.as_ref().unwrap())),
-            //                     )
-            //                 {
-            //                     group.set_context_mask(pixmap, &clip_path);
-            //                 }
-            //             }
-            //         }
-            //     }
-            // }
+            // heavy
+            match provider {
+                soft_skia::provider::Providers::G(group) => {
+                    if let Some(clip) = &group.clip {
+                        if let Some(clip_id) = clip.id {
+                            if let Some(clip_path) =
+                                item.children.iter_mut().find(|n| n.id == clip_id).and_then(
+                                    |n| Some(n.shape.get_path(group.context.as_ref().unwrap())),
+                                )
+                            {
+                                group.set_context_mask(pixmap, &clip_path);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         recursive_rasterization_node_to_pixmap(item, pixmap);
