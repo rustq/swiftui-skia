@@ -17,6 +17,7 @@ struct ContentView: View {
             SwiftUISkia.Circle(cx: 205, cy: 45, r: 30, style: "stroke", color: "purple") {}
             SwiftUISkia.Line(p1: [133, 44], p2: [160, 188], strokeWidth: 4, color: "black") {}
             SwiftUISkia.Points(points: [ [300, 200], [305, 200], [310, 210], [290, 310]], strokeWidth: 2, style: "stroke", color: "green") {}
+            SwiftUISkia.RoundRect(x: 40, y: 300, r: 4, width: 60, height: 80, style: "fill", color: "orange") {}
         }
     }
 }
