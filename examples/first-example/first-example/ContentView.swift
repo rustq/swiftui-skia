@@ -18,6 +18,8 @@ struct ContentView: View {
             SwiftUISkia.Line(p1: [133, 44], p2: [160, 188], strokeWidth: 4, color: "black") {}
             SwiftUISkia.Points(points: [ [300, 200], [305, 200], [310, 210], [290, 310]], strokeWidth: 2, style: "stroke", color: "green") {}
             SwiftUISkia.RoundRect(x: 40, y: 300, r: 4, width: 60, height: 80, style: "fill", color: "orange") {}
+            SwiftUISkia.Text(text: "Hello World",x: 140, y: 200, fontSize: 14, color: "#333", maxWidth: nil) {}
+            SwiftUISkia.Text(text: "Hello World",x: 140, y: 240, fontSize: 14, color: "white", maxWidth: 30) {}
         }
     }
 }

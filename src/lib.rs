@@ -8,6 +8,7 @@ use soft_skia::shape::Circle;
 use soft_skia::shape::Line;
 use soft_skia::shape::Points;
 use soft_skia::shape::RoundRect;
+use soft_skia::shape::Text;
 use soft_skia::shape::Shapes;
 use soft_skia::shape::Pixmap;
 use soft_skia::shape::ColorU8;
@@ -29,6 +30,7 @@ mod ffi {
         fn set_line_attr(&mut self, id: usize, p1: &[u32], p2: &[u32], stroke_width: Option<u32>, color: String);
         fn set_points_attr(&mut self, id: usize, points: &[u32], stroke_width: Option<u32>, style: String, color: String);
         fn set_round_rect_attr(&mut self, id: usize, x: u32, y: u32, r: u32, width: u32, height: u32, style: String, color: String);
+        fn set_text_attr(&mut self, id: usize, text: String, x: i32, y: i32, font_size: f32, color: String, max_width: Option<f32>);
 
         fn to_base64(&mut self) -> String;
     }
@@ -122,6 +124,18 @@ impl SoftSkia {
             height,
             style,
             color,
+        }))
+    }
+
+    pub fn set_text_attr(&mut self, id: usize, text: String, x: i32, y: i32, font_size: f32, color: String, max_width: Option<f32>) {
+        let color = parse_color(Some(color));
+        self.instance.set_shape_to_child(id, Shapes::T(Text {
+            text,
+            x,
+            y,
+            font_size,
+            color,
+            max_width,
         }))
     }
 

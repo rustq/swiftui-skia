@@ -19,6 +19,7 @@ void __swift_bridge__$SoftSkia$set_circle_attr(void* self, uintptr_t id, uint32_
 void __swift_bridge__$SoftSkia$set_line_attr(void* self, uintptr_t id, struct __private__FfiSlice p1, struct __private__FfiSlice p2, struct __private__OptionU32 stroke_width, void* color);
 void __swift_bridge__$SoftSkia$set_points_attr(void* self, uintptr_t id, struct __private__FfiSlice points, struct __private__OptionU32 stroke_width, void* style, void* color);
 void __swift_bridge__$SoftSkia$set_round_rect_attr(void* self, uintptr_t id, uint32_t x, uint32_t y, uint32_t r, uint32_t width, uint32_t height, void* style, void* color);
+void __swift_bridge__$SoftSkia$set_text_attr(void* self, uintptr_t id, void* text, int32_t x, int32_t y, float font_size, void* color, struct __private__OptionF32 max_width);
 void* __swift_bridge__$SoftSkia$to_base64(void* self);
 
 
