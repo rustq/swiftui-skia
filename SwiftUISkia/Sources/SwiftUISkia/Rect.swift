@@ -6,18 +6,18 @@ public struct Rect<Content: View>: View {
     var y: UInt32
     var width: UInt32
     var height: UInt32
-    var color: String
     var style: String
+    var color: String
     let content: Content
     @EnvironmentObject var ffi: FFI;
 
-    public init(x: UInt32, y: UInt32, width: UInt32, height: UInt32, color: String, style: String, @ViewBuilder builder: () -> Content) {
+    public init(x: UInt32, y: UInt32, width: UInt32, height: UInt32, style: String, color: String, @ViewBuilder builder: () -> Content) {
         self.x = x
         self.y = y
         self.width = width
         self.height = height
-        self.color = color
         self.style = style
+        self.color = color
         self.content = builder()
     }
     
@@ -27,7 +27,7 @@ public struct Rect<Content: View>: View {
         }.onAppear{
             let id = AutoIncrementID.id();
             self.ffi.soft.create(UInt(id))
-            self.ffi.soft.set_attr(UInt(id), self.x, self.y, self.width, self.height, 0, 0, 0, "rect", self.color, self.style)
+            self.ffi.soft.set_rect_attr(UInt(id), self.x, self.y, self.width, self.height, self.style, self.color)
             self.ffi.willChange();
         }
     }

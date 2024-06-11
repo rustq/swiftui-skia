@@ -22,6 +22,9 @@ mod ffi {
         fn create(&mut self, id: usize) -> ();
         // fn add(parent_id: usize, child_id: usize) -> ();
         fn set_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, r: u32, g: u32, b: u32, shape: String, color: String, style: String);
+
+        fn set_rect_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, style: String, color: String);
+
         fn to_base64(&mut self) -> String;
 
         fn hello_rust() -> String;
@@ -87,6 +90,19 @@ impl SoftSkia {
                 
             }
         }
+    }
+
+    pub fn set_rect_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, style: String, color: String) {
+        let color = parse_color(Some(color));
+        let style = parse_style(Some(style));
+        self.instance.set_shape_to_child(id, Shapes::R(Rect {
+            x,
+            y,
+            width,
+            height,
+            color,
+            style,
+        }))
     }
 
     pub fn to_base64(&mut self) -> String {
