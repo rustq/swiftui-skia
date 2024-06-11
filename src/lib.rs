@@ -2,10 +2,10 @@ extern crate soft_skia;
 extern crate base64;
 extern crate cssparser;
 use soft_skia::instance::Instance;
-use soft_skia::shape::Line;
 use soft_skia::shape::PaintStyle;
 use soft_skia::shape::Rect;
 use soft_skia::shape::Circle;
+use soft_skia::shape::Line;
 use soft_skia::shape::Shapes;
 use soft_skia::shape::Pixmap;
 use soft_skia::shape::ColorU8;
@@ -24,6 +24,7 @@ mod ffi {
 
         fn set_rect_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, style: String, color: String);
         fn set_circle_attr(&mut self, id: usize, cx: u32, cy: u32, r: u32, style: String, color: String);
+        fn set_line_attr(&mut self, id: usize, p1: &[u32], p2: &[u32], stroke_width: Option<u32>, color: String);
 
         fn to_base64(&mut self) -> String;
     }
@@ -70,6 +71,17 @@ impl SoftSkia {
             cy,
             r,
             style,
+            color,
+        }))
+    }
+
+
+    pub fn set_line_attr(&mut self, id: usize, p1: &[u32], p2: &[u32], stroke_width: Option<u32>, color: String) {
+        let color = parse_color(Some(color));
+        self.instance.set_shape_to_child(id, Shapes::L(Line {
+            p1: [p1[0], p1[1]],
+            p2: [p2[0], p2[1]],
+            stroke_width,
             color,
         }))
     }
