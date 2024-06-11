@@ -1,9 +1,3 @@
-public func hello_rust() -> RustString {
-    RustString(ptr: __swift_bridge__$hello_rust())
-}
-public func hello_soft_skia() -> RustString {
-    RustString(ptr: __swift_bridge__$hello_soft_skia())
-}
 
 public class SoftSkia: SoftSkiaRefMut {
     var isOwned: Bool = true
@@ -35,6 +29,10 @@ extension SoftSkiaRefMut {
 
     public func set_rect_attr<GenericIntoRustString: IntoRustString>(_ id: UInt, _ x: UInt32, _ y: UInt32, _ width: UInt32, _ height: UInt32, _ style: GenericIntoRustString, _ color: GenericIntoRustString) {
         __swift_bridge__$SoftSkia$set_rect_attr(ptr, id, x, y, width, height, { let rustString = style.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), { let rustString = color.intoRustString(); rustString.isOwned = false; return rustString.ptr }())
+    }
+
+    public func set_circle_attr<GenericIntoRustString: IntoRustString>(_ id: UInt, _ cx: UInt32, _ cy: UInt32, _ r: UInt32, _ style: GenericIntoRustString, _ color: GenericIntoRustString) {
+        __swift_bridge__$SoftSkia$set_circle_attr(ptr, id, cx, cy, r, { let rustString = style.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), { let rustString = color.intoRustString(); rustString.isOwned = false; return rustString.ptr }())
     }
 
     public func to_base64() -> RustString {

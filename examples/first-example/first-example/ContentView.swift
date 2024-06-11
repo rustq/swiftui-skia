@@ -13,6 +13,8 @@ struct ContentView: View {
         SwiftUISkia.Surface(width: 400, height: 400) {
             SwiftUISkia.Rect(x: 10, y: 10, width: 100, height: 100, style: "fill", color: "#ff3333") {}
             SwiftUISkia.Rect(x: 210, y: 110, width: 100, height: 100, style: "stroke", color: "cyan") {}
+            SwiftUISkia.Circle(cx: 205, cy: 45, r: 20, style: "fill", color: "purple") {}
+            SwiftUISkia.Circle(cx: 205, cy: 45, r: 30, style: "stroke", color: "purple") {}
         }
     }
 }

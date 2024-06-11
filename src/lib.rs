@@ -23,11 +23,9 @@ mod ffi {
         // fn add(parent_id: usize, child_id: usize) -> ();
 
         fn set_rect_attr(&mut self, id: usize, x: u32, y: u32, width: u32, height: u32, style: String, color: String);
+        fn set_circle_attr(&mut self, id: usize, cx: u32, cy: u32, r: u32, style: String, color: String);
 
         fn to_base64(&mut self) -> String;
-
-        fn hello_rust() -> String;
-        fn hello_soft_skia() -> String;
     }
 }
 
@@ -38,17 +36,6 @@ pub struct SoftSkia {
 impl SoftSkia {
     pub fn new() -> Self {
         let mut instance = Instance::new(0);
-        instance.set_shape_to_child(
-            0,
-            Shapes::R(Rect {
-                x: 0,
-                y: 0,
-                width: 400,
-                height: 400,
-                color: None,
-                style: None,
-            }),
-        );
         Self {
             instance
         }
@@ -70,88 +57,26 @@ impl SoftSkia {
             y,
             width,
             height,
-            color,
             style,
+            color,
+        }))
+    }
+
+    pub fn set_circle_attr(&mut self, id: usize, cx: u32, cy: u32, r: u32, style: String, color: String) {
+        let color = parse_color(Some(color));
+        let style = parse_style(Some(style));
+        self.instance.set_shape_to_child(id, Shapes::C(Circle {
+            cx,
+            cy,
+            r,
+            style,
+            color,
         }))
     }
 
     pub fn to_base64(&mut self) -> String {
         to_base64(&mut self.instance.tree)
     }
-}
-
-fn hello_rust() -> String {
-    String::from("Hello from Rust!")
-}
-
-fn hello_soft_skia() -> String {
-
-    let mut instance = Instance::new(0);
-    instance.create_child_append_to_container(1, 0);
-    instance.create_child_append_to_container(2, 0);
-    instance.create_child_append_to_container(3, 0);
-    instance.create_child_append_to_container(4, 0);
-
-    instance.set_shape_to_child(
-        0,
-        Shapes::R(Rect {
-            x: 0,
-            y: 0,
-            width: 400,
-            height: 400,
-            color: None,
-            style: None,
-        }),
-    );
-
-    instance.set_shape_to_child(
-        1,
-        Shapes::R(Rect {
-            x: 20,
-            y: 20,
-            width: 200,
-            height: 200,
-            color: Some(soft_skia::shape::ColorU8::from_rgba(0, 100, 0, 255)),
-            style: None,
-        }),
-    );
-
-    instance.set_shape_to_child(
-        2,
-        Shapes::C(Circle {
-            cx: 120,
-            cy: 120,
-            r: 40,
-            color: Some(soft_skia::shape::ColorU8::from_rgba(40, 0, 40, 255)),
-            style: None,
-        }),
-    );
-
-    instance.set_shape_to_child(
-        3,
-        Shapes::R(Rect {
-            x: 300,
-            y: 300,
-            width: 60,
-            height: 80,
-            color: Some(soft_skia::shape::ColorU8::from_rgba(255, 0, 0, 255)),
-            style: None,
-        }),
-    );
-
-    instance.set_shape_to_child(
-        4,
-        Shapes::R(Rect {
-            x: 300,
-            y: 100,
-            width: 60,
-            height: 80,
-            color: Some(soft_skia::shape::ColorU8::from_rgba(255, 255, 255, 255)),
-            style: None,
-        }),
-    );
-
-    to_base64(&mut instance.tree)
 }
 
 

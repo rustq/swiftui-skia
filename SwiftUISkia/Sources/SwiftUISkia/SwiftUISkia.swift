@@ -18,6 +18,7 @@ public struct Surface<Content: View>: View {
         self.height = height
         self.content = builder()
         self.ffi = FFI(soft: SoftSkiaSwift.SoftSkia());
+        self.ffi.soft.set_rect_attr(0, 0, 0, width, height, "fill", "transparent")
     }
     
     public var body: some View {
