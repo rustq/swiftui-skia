@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8FD136FB2C1D3B6800A4C1B7 /* SwiftUISkia in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD136FA2C1D3B6800A4C1B7 /* SwiftUISkia */; };
+		8FD136FE2C1D3B7C00A4C1B7 /* SwiftUISkiaBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD136FD2C1D3B7C00A4C1B7 /* SwiftUISkiaBridge */; };
 		8FF8783B2C15A8CC007A9F3A /* first_exampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF8783A2C15A8CC007A9F3A /* first_exampleApp.swift */; };
 		8FF8783D2C15A8CC007A9F3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF8783C2C15A8CC007A9F3A /* ContentView.swift */; };
 		8FF8783F2C15A8CE007A9F3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF8783E2C15A8CE007A9F3A /* Assets.xcassets */; };
 		8FF878432C15A8CE007A9F3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF878422C15A8CE007A9F3A /* Preview Assets.xcassets */; };
-		8FF8784B2C15A901007A9F3A /* SoftSkiaSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8FF8784A2C15A901007A9F3A /* SoftSkiaSwift */; };
-		8FF8784E2C15A911007A9F3A /* SwiftUISkia in Frameworks */ = {isa = PBXBuildFile; productRef = 8FF8784D2C15A911007A9F3A /* SwiftUISkia */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +29,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FF8784E2C15A911007A9F3A /* SwiftUISkia in Frameworks */,
-				8FF8784B2C15A901007A9F3A /* SoftSkiaSwift in Frameworks */,
+				8FD136FB2C1D3B6800A4C1B7 /* SwiftUISkia in Frameworks */,
+				8FD136FE2C1D3B7C00A4C1B7 /* SwiftUISkiaBridge in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,8 +90,8 @@
 			);
 			name = "first-example";
 			packageProductDependencies = (
-				8FF8784A2C15A901007A9F3A /* SoftSkiaSwift */,
-				8FF8784D2C15A911007A9F3A /* SwiftUISkia */,
+				8FD136FA2C1D3B6800A4C1B7 /* SwiftUISkia */,
+				8FD136FD2C1D3B7C00A4C1B7 /* SwiftUISkiaBridge */,
 			);
 			productName = "first-example";
 			productReference = 8FF878372C15A8CC007A9F3A /* first-example.app */;
@@ -122,8 +122,8 @@
 			);
 			mainGroup = 8FF8782E2C15A8CC007A9F3A;
 			packageReferences = (
-				8FF878492C15A901007A9F3A /* XCLocalSwiftPackageReference "../../SoftSkiaSwift" */,
-				8FF8784C2C15A911007A9F3A /* XCLocalSwiftPackageReference "../../SwiftUISkia" */,
+				8FD136F92C1D3B6800A4C1B7 /* XCLocalSwiftPackageReference "../../SwiftUISkia" */,
+				8FD136FC2C1D3B7C00A4C1B7 /* XCLocalSwiftPackageReference "../../SwiftUISkiaBridge" */,
 			);
 			productRefGroup = 8FF878382C15A8CC007A9F3A /* Products */;
 			projectDirPath = "";
@@ -369,24 +369,24 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		8FF878492C15A901007A9F3A /* XCLocalSwiftPackageReference "../../SoftSkiaSwift" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../SoftSkiaSwift;
-		};
-		8FF8784C2C15A911007A9F3A /* XCLocalSwiftPackageReference "../../SwiftUISkia" */ = {
+		8FD136F92C1D3B6800A4C1B7 /* XCLocalSwiftPackageReference "../../SwiftUISkia" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../../SwiftUISkia;
+		};
+		8FD136FC2C1D3B7C00A4C1B7 /* XCLocalSwiftPackageReference "../../SwiftUISkiaBridge" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../SwiftUISkiaBridge;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8FF8784A2C15A901007A9F3A /* SoftSkiaSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SoftSkiaSwift;
-		};
-		8FF8784D2C15A911007A9F3A /* SwiftUISkia */ = {
+		8FD136FA2C1D3B6800A4C1B7 /* SwiftUISkia */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftUISkia;
+		};
+		8FD136FD2C1D3B7C00A4C1B7 /* SwiftUISkiaBridge */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftUISkiaBridge;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

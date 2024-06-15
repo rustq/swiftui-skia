@@ -1,11 +1,11 @@
 // swift-tools-version:5.5.0
 import PackageDescription
 let package = Package(
-	name: "SoftSkiaSwift",
+	name: "SwiftUISkiaBridge",
 	products: [
 		.library(
-			name: "SoftSkiaSwift",
-			targets: ["SoftSkiaSwift"]),
+			name: "SwiftUISkiaBridge",
+			targets: ["SwiftUISkiaBridge"]),
 	],
 	dependencies: [],
 	targets: [
@@ -14,7 +14,7 @@ let package = Package(
 			path: "RustXcframework.xcframework"
 		),
 		.target(
-			name: "SoftSkiaSwift",
+			name: "SwiftUISkiaBridge",
 			dependencies: ["RustXcframework"])
 	]
 )

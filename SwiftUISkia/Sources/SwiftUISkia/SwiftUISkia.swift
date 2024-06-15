@@ -2,7 +2,7 @@
 // https://docs.swift.org/swift-book
 
 import SwiftUI
-import SoftSkiaSwift
+import SwiftUISkiaBridge
 
 @available(macOS 14, *)
 public struct Surface<Content: View>: View {
@@ -17,7 +17,7 @@ public struct Surface<Content: View>: View {
         self.width = width
         self.height = height
         self.content = builder()
-        self.ffi = FFI(soft: SoftSkiaSwift.SoftSkia());
+        self.ffi = FFI(soft: SwiftUISkiaBridge.SoftSkia());
         self.ffi.soft.set_rect_attr(0, 0, 0, width, height, "fill", "transparent")
     }
     

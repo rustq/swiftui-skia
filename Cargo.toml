@@ -1,7 +1,7 @@
 # Cargo.toml
 
 [package]
-name = "soft-skia-swift"
+name = "swiftui-skia"
 version = "0.1.0"
 
 [lib]

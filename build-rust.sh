@@ -13,9 +13,9 @@ cargo build --target aarch64-apple-darwin
 mkdir -p ./target/universal-macos/debug
 
 lipo \
-    ./target/aarch64-apple-darwin/debug/libsoft_skia_swift.a \
-    ./target/x86_64-apple-darwin/debug/libsoft_skia_swift.a -create -output \
-    ./target/universal-macos/debug/libsoft_skia_swift.a
+    ./target/aarch64-apple-darwin/debug/libswiftui_skia.a \
+    ./target/x86_64-apple-darwin/debug/libswiftui_skia.a -create -output \
+    ./target/universal-macos/debug/libswiftui_skia.a
 
 cargo build --target aarch64-apple-ios
 
@@ -24,6 +24,6 @@ cargo build --target aarch64-apple-ios-sim
 mkdir -p ./target/universal-ios/debug
 
 lipo \
-    ./target/aarch64-apple-ios-sim/debug/libsoft_skia_swift.a \
-    ./target/x86_64-apple-ios/debug/libsoft_skia_swift.a -create -output \
-    ./target/universal-ios/debug/libsoft_skia_swift.a
+    ./target/aarch64-apple-ios-sim/debug/libswiftui_skia.a \
+    ./target/x86_64-apple-ios/debug/libswiftui_skia.a -create -output \
+    ./target/universal-ios/debug/libswiftui_skia.a

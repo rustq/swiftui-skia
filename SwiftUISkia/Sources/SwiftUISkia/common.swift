@@ -1,4 +1,4 @@
-import SoftSkiaSwift
+import SwiftUISkiaBridge
 import Foundation
 
 public class AutoIncrementID {
@@ -13,10 +13,10 @@ public class AutoIncrementID {
 
 @available(macOS 10.15, *)
 public class FFI: ObservableObject {
-    @Published var soft: SoftSkiaSwift.SoftSkia;
+    @Published var soft: SwiftUISkiaBridge.SoftSkia;
     @Published private var count: UInt32;
     
-    init(soft: SoftSkiaSwift.SoftSkia) {
+    init(soft: SwiftUISkiaBridge.SoftSkia) {
         self.soft = soft;
         self.count = 0;
     }
