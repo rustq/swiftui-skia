@@ -1,4 +1,4 @@
-<img width="1439" alt="截屏2024-06-15 18 19 44" src="https://github.com/rustq/SoftSkiaSwift/assets/11075892/de8584db-4ccb-4cc1-b9a2-d0fa1d1a60ae">
+<img width="1440" alt="截屏2024-06-15 19 26 35-min" src="https://github.com/rustq/swiftui-skia/assets/11075892/7c25b3c9-2fa9-48e7-8f44-e47819611073">
 
 # SwiftUI Skia
 
