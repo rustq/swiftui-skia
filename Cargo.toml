@@ -2,7 +2,7 @@
 
 [package]
 name = "swiftui-skia"
-version = "0.1.0"
+version = "0.0.1"
 
 [lib]
 crate-type = ["staticlib"]
