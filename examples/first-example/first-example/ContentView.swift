@@ -10,16 +10,27 @@ import SwiftUISkia
 
 struct ContentView: View {
     var body: some View {
-        SwiftUISkia.Surface(width: 400, height: 400) {
-            SwiftUISkia.Rect(x: 10, y: 10, width: 100, height: 100, style: "fill", color: "#ff3333") {}
-            SwiftUISkia.Rect(x: 210, y: 110, width: 100, height: 100, style: "stroke", color: "cyan") {}
-            SwiftUISkia.Circle(cx: 105, cy: 45, r: 20, style: "fill", color: "purple") {}
-            SwiftUISkia.Circle(cx: 105, cy: 45, r: 30, style: "stroke", color: "purple") {}
-            SwiftUISkia.Line(p1: [133, 44], p2: [160, 188], strokeWidth: 4, color: "black") {}
-            SwiftUISkia.Points(points: [ [300, 200], [305, 200], [310, 210], [290, 310]], strokeWidth: 2, style: "stroke", color: "green") {}
-            SwiftUISkia.RoundRect(x: 40, y: 300, r: 4, width: 60, height: 80, style: "fill", color: "orange") {}
-            SwiftUISkia.Text(text: "Hello World",x: 140, y: 200, fontSize: 14, color: "#333", maxWidth: nil) {}
-            SwiftUISkia.Text(text: "Hello World",x: 140, y: 240, fontSize: 14, color: "white", maxWidth: 30) {}
+        SwiftUISkia.Surface(width: 360, height: 360) {
+            SwiftUISkia.Rect(x: 10, y: 220, width: 30, height: 30, style: "fill", color: "cyan") {}
+            SwiftUISkia.Line(p1: [100, 260], p2: [50, 285], strokeWidth: 8, color: "black") {}
+            SwiftUISkia.RoundRect(x: 220, y: 50, r: 10, width: 80, height: 80, style: "stroke", color: "fuchsia") {}
+
+            SwiftUISkia.Points(points: [
+                [138, 10],
+                [178, 90],
+                [266, 103],
+                [202, 165],
+                [217, 254],
+                [138, 212],
+                [59, 254],
+                [74, 165],
+                [10, 103],
+                [98, 90],
+                [138, 10],
+              ], strokeWidth: 1, style: "fill", color: "rgba(200, 255, 0, 0.7)") {}
+            SwiftUISkia.Circle(cx: 200, cy: 220, r: 70, style: "stroke", color: "violet") {}
+            SwiftUISkia.Circle(cx: 200, cy: 220, r: 50, style: "fill", color: "violet") {}
+            SwiftUISkia.Text(text: "Hello SwiftUI Skia!",x: 80, y: 0, fontSize: 16, color: "black", maxWidth: 60) {}
         }
     }
 }
