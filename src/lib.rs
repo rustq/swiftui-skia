@@ -169,7 +169,7 @@ pub fn to_base64(tree: &mut soft_skia::tree::Tree) -> String {
 fn recursive_rasterization_node_to_pixmap(node: &mut soft_skia::tree::Node, pixmap: &mut Pixmap) -> () {
     let context = node.provider.as_ref().and_then(|p| p.get_context());
 
-    for item in node.children.iter_mut() {
+    for item in node.children.iter_mut().rev() {
         let inactive = *context
             .and_then(|c| c.inactive_nodes_map.as_ref().and_then(|m| m.get(&item.id)))
             .unwrap_or(&false);
@@ -183,22 +183,6 @@ fn recursive_rasterization_node_to_pixmap(node: &mut soft_skia::tree::Node, pixm
         if let Some(provider) = item.provider.as_mut() {
             provider.set_context(pixmap, node.provider.as_ref());
 
-            // heavy
-            match provider {
-                soft_skia::provider::Providers::G(group) => {
-                    if let Some(clip) = &group.clip {
-                        if let Some(clip_id) = clip.id {
-                            if let Some(clip_path) =
-                                item.children.iter_mut().find(|n| n.id == clip_id).and_then(
-                                    |n| Some(n.shape.get_path(group.context.as_ref().unwrap())),
-                                )
-                            {
-                                group.set_context_mask(pixmap, &clip_path);
-                            }
-                        }
-                    }
-                }
-            }
         }
 
         recursive_rasterization_node_to_pixmap(item, pixmap);
