@@ -15,7 +15,7 @@ $ cargo add swiftui-skia
 ```
 
 ```shell
-$ ln -s ~/.cargo/registry/src/index.crates.io-{YOUR CRATE HASH}/swiftui-skia-0.0.1 swiftui-skia
+$ ln -s ~/.cargo/registry/src/index.crates.io-{YOUR CRATE HASH}/swiftui-skia-0.0.2 swiftui-skia
 ```
 
 ```shell
