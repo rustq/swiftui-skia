@@ -71,9 +71,9 @@ $ ./build-rust.sh
 
 Frameworks, Libraries, and Embedded Content
 
-血 SwiftUISkia
+△ SwiftUISkia
 
-血 SwiftUISkiaBridge
+△ SwiftUISkiaBridge
 
 
 ## License
