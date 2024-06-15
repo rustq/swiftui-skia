@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(macOS 10.15, *)
 public struct Text<Content: View>: View {
     var text: String
     var x: Int32

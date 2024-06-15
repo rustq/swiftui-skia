@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(macOS 10.15, *)
 public struct Points<Content: View>: View {
     var points: [[UInt32]]
     var strokeWidth: UInt32

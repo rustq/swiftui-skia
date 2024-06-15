@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(macOS 10.15, *)
 public struct Rect<Content: View>: View {
     var x: UInt32
     var y: UInt32

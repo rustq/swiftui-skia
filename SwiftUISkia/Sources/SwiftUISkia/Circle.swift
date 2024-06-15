@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(macOS 10.15, *)
 public struct Circle<Content: View>: View {
     var cx: UInt32
     var cy: UInt32

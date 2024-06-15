@@ -1,4 +1,4 @@
-// swift-tools-version: 5.10
+// swift-tools-version:5.5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,8 +6,8 @@ import PackageDescription
 let package = Package(
     name: "SwiftUISkia",
     platforms: [
-        .macOS(.v10_15),
-        .iOS(.v13),
+        .macOS(.v12),
+        .iOS(.v15),
         .tvOS(.v13),
         .watchOS(.v6)
     ],

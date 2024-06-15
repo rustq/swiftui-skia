@@ -1,6 +1,5 @@
 import SwiftUI
 
-@available(macOS 10.15, *)
 public struct Line<Content: View>: View {
     var p1: [UInt32]
     var p2: [UInt32]

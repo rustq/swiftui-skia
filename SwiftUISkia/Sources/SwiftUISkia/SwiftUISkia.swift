@@ -4,7 +4,6 @@
 import SwiftUI
 import SwiftUISkiaBridge
 
-@available(macOS 14, *)
 public struct Surface<Content: View>: View {
     var width: UInt32
     var height: UInt32

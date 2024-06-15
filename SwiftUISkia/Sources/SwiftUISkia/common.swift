@@ -11,7 +11,6 @@ public class AutoIncrementID {
 }
 
 
-@available(macOS 10.15, *)
 public class FFI: ObservableObject {
     @Published var soft: SwiftUISkiaBridge.SoftSkia;
     @Published private var count: UInt32;
