@@ -4,9 +4,9 @@
 
 [![license](https://img.shields.io/badge/license-MIT-cyan)](https://revolunet.mit-license.org/) [![crates](https://img.shields.io/crates/v/swiftui-skia)](https://crates.io/crates/swiftui-skia)
 
-The `swiftui-skia` is a skia based 2d graphics `SwiftUI` rendering library. It is based on `Rust` to implement software rasterization to perform rendering. It takes up less memory than the hardware rasterization, however it is still an experimental project. And it's based entirely on `SwiftUI` syntax.
+The `swiftui-skia` is a skia based 2d graphics `SwiftUI` rendering library. It is based on `Rust` to implement software rasterization to perform rendering. It performs better in cross-platform adaptability than hardware rasterization, however it is still an experimental project. And it's based entirely on `SwiftUI` syntax.
 
-基于 `Skia` 的 2D 图形 `SwiftUI` 渲染库 —— 使用 `Rust` 语言实现纯软件光栅化渲染，相比原生光栅化占用更少的内存，不过目前仍然是一个实验项目；此外使用层面完全基于 `SwiftUI` 语法。
+基于 `Skia` 的 2D 图形 `SwiftUI` 渲染库 —— 使用 `Rust` 语言实现纯软件光栅化渲染，相比原生光栅化具有更好的跨平台适应性，不过目前仍然是一个实验项目；此外使用层面完全基于 `SwiftUI` 语法。
 
 ## Usage
 
