@@ -48,11 +48,13 @@ $ cargo add swiftui-skia
 ```
 
 ```shell
+$ cargo install --path .
+
 $ ln -s ~/.cargo/registry/src/index.crates.io-{YOUR CRATE HASH}/swiftui-skia-0.0.2 swiftui-skia
 ```
 
 ```shell
-$ cargo install cargo-lip
+$ cargo install cargo-lipo
 
 $ cargo install swift-bridge-cli
 ```
