@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8FD136FB2C1D3B6800A4C1B7 /* SwiftUISkia in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD136FA2C1D3B6800A4C1B7 /* SwiftUISkia */; };
 		8FD136FE2C1D3B7C00A4C1B7 /* SwiftUISkiaBridge in Frameworks */ = {isa = PBXBuildFile; productRef = 8FD136FD2C1D3B7C00A4C1B7 /* SwiftUISkiaBridge */; };
+		8FE777162C4986FF0029467A /* SwiftUISkia in Frameworks */ = {isa = PBXBuildFile; productRef = 8FE777152C4986FF0029467A /* SwiftUISkia */; };
 		8FF8783B2C15A8CC007A9F3A /* first_exampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF8783A2C15A8CC007A9F3A /* first_exampleApp.swift */; };
 		8FF8783D2C15A8CC007A9F3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF8783C2C15A8CC007A9F3A /* ContentView.swift */; };
 		8FF8783F2C15A8CE007A9F3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF8783E2C15A8CE007A9F3A /* Assets.xcassets */; };
@@ -29,7 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FD136FB2C1D3B6800A4C1B7 /* SwiftUISkia in Frameworks */,
+				8FE777162C4986FF0029467A /* SwiftUISkia in Frameworks */,
 				8FD136FE2C1D3B7C00A4C1B7 /* SwiftUISkiaBridge in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,11 +37,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8FE777102C48D1B40029467A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8FF8782E2C15A8CC007A9F3A = {
 			isa = PBXGroup;
 			children = (
 				8FF878392C15A8CC007A9F3A /* first-example */,
 				8FF878382C15A8CC007A9F3A /* Products */,
+				8FE777102C48D1B40029467A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,8 +98,8 @@
 			);
 			name = "first-example";
 			packageProductDependencies = (
-				8FD136FA2C1D3B6800A4C1B7 /* SwiftUISkia */,
 				8FD136FD2C1D3B7C00A4C1B7 /* SwiftUISkiaBridge */,
+				8FE777152C4986FF0029467A /* SwiftUISkia */,
 			);
 			productName = "first-example";
 			productReference = 8FF878372C15A8CC007A9F3A /* first-example.app */;
@@ -380,13 +388,13 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8FD136FA2C1D3B6800A4C1B7 /* SwiftUISkia */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SwiftUISkia;
-		};
 		8FD136FD2C1D3B7C00A4C1B7 /* SwiftUISkiaBridge */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftUISkiaBridge;
+		};
+		8FE777152C4986FF0029467A /* SwiftUISkia */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftUISkia;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
