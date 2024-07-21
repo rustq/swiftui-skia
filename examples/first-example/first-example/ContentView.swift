@@ -32,6 +32,7 @@ struct ContentView: View {
             SwiftUISkia.Circle(cx: 200, cy: 220, r: 70, style: "stroke", color: "violet") {}
             SwiftUISkia.Circle(cx: 200, cy: 220, r: 50, style: "fill", color: "violet") {}
             SwiftUISkia.Text(text: "Hello SwiftUI Skia!",x: 80, y: 0, fontSize: 16, color: "black", maxWidth: 60) {}
+            SwiftUISkia.Text(text: "Hello SwiftUI Skia!",x: 80, y: 60, fontSize: 16, color: "black") {}
         }
     }
 }

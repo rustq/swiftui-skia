@@ -6,11 +6,11 @@ public struct Text<Content: View>: View {
     var y: Int32
     var fontSize: Float32
     var color: String
-    var maxWidth: Optional<Float32>
+    var maxWidth: Float32?
     let content: Content
     @EnvironmentObject var ffi: FFI;
 
-    public init(text: String, x: Int32, y: Int32, fontSize: Float32, color: String, maxWidth: Optional<Float32>, @ViewBuilder builder: () -> Content) {
+    public init(text: String, x: Int32, y: Int32, fontSize: Float32, color: String, maxWidth: Float32? = nil, @ViewBuilder builder: () -> Content) {
         self.text = text
         self.x = x
         self.y = y
@@ -26,7 +26,7 @@ public struct Text<Content: View>: View {
         }.onAppear{
             let id = AutoIncrementID.id();
             self.ffi.soft.create(UInt(id))
-            self.ffi.soft.set_text_attr(UInt(id), self.text, self.x, self.y, self.fontSize, self.color, self.maxWidth)
+            self.ffi.soft.set_text_attr(UInt(id), self.text, self.x, self.y, self.fontSize, self.color, (self.maxWidth != nil) ? self.maxWidth! : nil)
             self.ffi.willChange();
         }
     }
