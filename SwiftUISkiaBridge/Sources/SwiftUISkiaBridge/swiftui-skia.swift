@@ -52,6 +52,10 @@ extension SoftSkiaRefMut {
         __swift_bridge__$SoftSkia$set_text_attr(ptr, id, { let rustString = text.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), x, y, font_size, { let rustString = color.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), max_width.intoFfiRepr())
     }
 
+    public func set_image_attr<GenericIntoRustString: IntoRustString>(_ id: UInt, _ image: GenericIntoRustString, _ x: Int32, _ y: Int32, _ width: UInt32, _ height: UInt32, _ blur: Optional<Float>, _ grayscale: Optional<Bool>, _ brighten: Optional<Int32>, _ invert: Optional<Bool>) {
+        __swift_bridge__$SoftSkia$set_image_attr(ptr, id, { let rustString = image.intoRustString(); rustString.isOwned = false; return rustString.ptr }(), x, y, width, height, blur.intoFfiRepr(), grayscale.intoFfiRepr(), brighten.intoFfiRepr(), invert.intoFfiRepr())
+    }
+
     public func to_base64() -> RustString {
         RustString(ptr: __swift_bridge__$SoftSkia$to_base64(ptr))
     }

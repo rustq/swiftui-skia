@@ -2,6 +2,7 @@ extern crate soft_skia;
 extern crate base64;
 extern crate cssparser;
 use soft_skia::instance::Instance;
+use soft_skia::shape::Image;
 use soft_skia::shape::PaintStyle;
 use soft_skia::shape::Rect;
 use soft_skia::shape::Circle;
@@ -31,6 +32,7 @@ mod ffi {
         fn set_points_attr(&mut self, id: usize, points: &[u32], stroke_width: Option<u32>, style: String, color: String);
         fn set_round_rect_attr(&mut self, id: usize, x: u32, y: u32, r: u32, width: u32, height: u32, style: String, color: String);
         fn set_text_attr(&mut self, id: usize, text: String, x: i32, y: i32, font_size: f32, color: String, max_width: Option<f32>);
+        fn set_image_attr(&mut self, id: usize, image: String, x: i32, y: i32, width: u32, height: u32, blur: Option<f32>, grayscale: Option<bool>, brighten: Option<i32>, invert: Option<bool>);
 
         fn to_base64(&mut self) -> String;
     }
@@ -138,6 +140,21 @@ impl SoftSkia {
             max_width,
         }))
     }
+
+    pub fn set_image_attr(&mut self, id: usize, image: String, x: i32, y: i32, width: u32, height: u32, blur: Option<f32>, grayscale: Option<bool>, brighten: Option<i32>, invert: Option<bool>) {
+        self.instance.set_shape_to_child(id, Shapes::I(Image {
+            image,
+            x,
+            y,
+            width,
+            height,
+            blur,
+            grayscale,
+            brighten,
+            invert,
+        }))
+    }
+
 
     pub fn to_base64(&mut self) -> String {
         to_base64(&mut self.instance.tree)
