@@ -6,15 +6,15 @@ public struct Image<Content: View>: View {
     var y: Int32
     var width: UInt32
     var height: UInt32
-    var blur: Optional<Float32>
-    var grayscale: Optional<Bool>
-    var brighten: Optional<Int32>
-    var invert: Optional<Bool>
+    var blur: Float32?
+    var grayscale: Bool?
+    var brighten: Int32?
+    var invert: Bool?
     let content: Content
     @State var b64: String = "";
     @EnvironmentObject var ffi: FFI;
 
-    public init(image: String, x: Int32, y: Int32, width: UInt32, height: UInt32, blur: Optional<Float32>, grayscale: Optional<Bool>, brighten: Optional<Int32>, invert: Optional<Bool>, @ViewBuilder builder: () -> Content) {
+    public init(image: String, x: Int32, y: Int32, width: UInt32, height: UInt32, blur: Float32? = nil, grayscale: Bool? = nil, brighten: Int32? = nil, invert: Bool? = nil, @ViewBuilder builder: () -> Content) {
         self.image = image
         self.x = x
         self.y = y
@@ -36,6 +36,7 @@ public struct Image<Content: View>: View {
             
             if (self.image.starts(with: "data:image/png;base64")) {
                 self.b64 = self.image.replacingOccurrences(of: "data:image/png;base64,", with: "")
+                print(self.b64)
             } else {
                 Task {
                     do {
