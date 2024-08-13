@@ -1,6 +1,6 @@
 extern crate soft_skia;
 extern crate base64;
-extern crate cssparser;
+extern crate csscolorparser;
 use soft_skia::instance::Instance;
 use soft_skia::shape::Image;
 use soft_skia::shape::PaintStyle;
@@ -13,7 +13,6 @@ use soft_skia::shape::Text;
 use soft_skia::shape::Shapes;
 use soft_skia::shape::Pixmap;
 use soft_skia::shape::ColorU8;
-use cssparser::{Color as CSSColor, Parser, ParserInput};
 
 #[swift_bridge::bridge]
 mod ffi {
@@ -214,15 +213,9 @@ fn recursive_rasterization_node_to_pixmap(node: &mut soft_skia::tree::Node, pixm
 
 fn parse_color(color: Option<String>) -> Option<ColorU8> {
     if let Some(color_str) = color {
-        let mut parser_input = ParserInput::new(&color_str);
-        let mut parser = Parser::new(&mut parser_input);
-
-        if let Ok(css_color) = CSSColor::parse(&mut parser) {
-            if let CSSColor::RGBA(rgba) = css_color {
-                return Some(ColorU8::from_rgba(
-                    rgba.red, rgba.green, rgba.blue, rgba.alpha,
-                ));
-            }
+        if let Ok(css_color) = csscolorparser::parse(&color_str) {
+            let css_rgba8 = css_color.to_rgba8();
+            return Some(ColorU8::from_rgba(css_rgba8[0], css_rgba8[1], css_rgba8[2], css_rgba8[3]))
         }
     }
     None
