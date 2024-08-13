@@ -2,7 +2,7 @@
 
 [package]
 name = "swiftui-skia"
-version = "0.0.3"
+version = "0.0.4"
 description = "The swiftui-skia is a skia based 2d graphics SwiftUI rendering library. It is based on Rust to implement software rasterization to perform rendering. It performs better in cross-platform adaptability than hardware rasterization, however it is still an experimental project. And it's based entirely on SwiftUI syntax."
 edition = "2021"
 authors = ["meloalright", "rustq"]
