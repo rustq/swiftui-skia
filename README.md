@@ -31,7 +31,6 @@ struct ContentView: View {
                 [74, 165],
                 [10, 103],
                 [98, 90],
-                [138, 10],
             ], strokeWidth: 1, style: "fill", color: "rgba(200, 255, 0, 0.7)") {}
             SwiftUISkia.Circle(cx: 200, cy: 220, r: 70, style: "stroke", color: "violet") {}
             SwiftUISkia.Circle(cx: 200, cy: 220, r: 50, style: "fill", color: "violet") {}
